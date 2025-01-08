@@ -1,18 +1,28 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Hello Vue 3!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <div :class="$style.container">
+      <header :class="$style.header">
+        <router-link to="/">Home</router-link>
+        |
+        <router-link to="/ping">Ping</router-link>
+        |
+        <router-link to="/city/Tokyo">Tokyo</router-link>
+        |
+        <router-link to="/login">Login</router-link>
+      </header>
+
+      <router-view />
+    </div>
   </main>
 </template>
+
+<style module>
+.container {
+  max-width: fit-content;
+  margin: auto;
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+</style>

@@ -12,5 +12,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/webapp-frontend/'
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: (path: string) => path.replace(/^\/api/, '/')
+      }
+    }
+  }
 })

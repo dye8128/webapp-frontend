@@ -32,8 +32,8 @@ const finishTask = (task: string) => {
         <h2>TodoList</h2>
         未完タスク
         <ul>
-            <template v-for="todo in todos" :key="todo.task">
-                <li v-if="!todo.done">
+            <template v-for="todo in todos">
+                <li v-if="!todo.done" :key="todo.task">
                     <div>{{ todo.task }}</div>
                     <button @click="finishTask(todo.task)">完了する</button>
                 </li>
@@ -41,8 +41,8 @@ const finishTask = (task: string) => {
         </ul>
         完了済タスク
         <ul>
-            <template v-for="todo in todos" :key="todo.task">
-                <li v-if="todo.done">{{ todo.task }}</li>
+            <template v-for="todo in todos">
+                <li v-if="todo.done" :key="todo.task">{{ todo.task }}</li>
             </template>
         </ul>
         <div>
