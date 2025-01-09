@@ -24,7 +24,7 @@ interface Country {
     <div v-if="countries">
       <ul>
         <li v-for="country in countries" :key="country.code">
-          <router-link :to="{path: `country/${country.name}`}">{{ country.name }}</router-link>
+          <router-link :to="{path: `country/${country.code}`}">{{ country.name }}</router-link>
         </li>
       </ul>
     </div>
