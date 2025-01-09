@@ -15,7 +15,14 @@ onMounted(async () => {
     <h1>
       {{ cityName }}
     </h1>
-    <div v-if="cityInfo">{{ cityInfo }}</div>
+    <div v-if="cityInfo">
+      <ul>
+        <li>ID: {{ cityInfo.id }}</li>
+        <li>国コード: {{ cityInfo.countryCode.String }}</li>
+        <li>地域: {{ cityInfo.district.String }}</li>
+        <li>人口: {{ cityInfo.population.Int64 }}</li>
+      </ul>
+    </div>
     <div v-else>街が見つかりませんでした</div>
   </div>
 </template>

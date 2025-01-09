@@ -10,21 +10,21 @@ onMounted(async () => {
 })
 
 interface ValidString {
-    String: string
-    Valid: boolean
+  String: string
+  Valid: boolean
 }
 
 interface ValidNumber {
-    Int64: number
-    Valid: boolean
+  Int64: number
+  Valid: boolean
 }
 
 interface City {
-    id: number
-    name: ValidString
-    countryCode: ValidString
-    district: ValidString
-    population: ValidNumber
+  id: number
+  name: ValidString
+  countryCode: ValidString
+  district: ValidString
+  population: ValidNumber
 }
 </script>
 
@@ -33,14 +33,15 @@ interface City {
     <h1>
       {{ countryCode }}
     </h1>
-    <div>
+    <div v-if="cityInfo">
+      <div>
         <ul>
-            <li v-for="city in cityInfo" :key="city.id">
-                <router-link :to="{path: `../city/${city.name.String}`}">{{ city.name.String }}</router-link>
-            </li>
+          <li v-for="city in cityInfo" :key="city.id">
+            <router-link :to="{ path: `../city/${city.name.String}` }">{{ city.name.String }}</router-link>
+          </li>
         </ul>
+      </div>
     </div>
-    <div v-if="cityInfo">{{ cityInfo }}</div>
     <div v-else>国が見つかりませんでした</div>
   </div>
 </template>
